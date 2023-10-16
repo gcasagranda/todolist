@@ -36,6 +36,7 @@ public class TaskController {
         if(task.getEndAt().isBefore(task.getStartAt())){
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("End date must be after start date");
         }
+        System.out.println(task);
         var taskCreated = this.taskRepository.save(task);
         return ResponseEntity.status(HttpStatus.OK).body(taskCreated);
     }
